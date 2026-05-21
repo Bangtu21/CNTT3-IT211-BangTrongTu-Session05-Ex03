@@ -1,6 +1,9 @@
 package spring_boot.session05ex02.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 
 @Entity
@@ -9,7 +12,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Tên sản phẩm không được để trống")
     private String name;
+
+    @NotNull(message = "Giá không được trống")
+    @Positive(message = "Giá phải lớn hơn 0")
     private Double price;
 
     public Product() {

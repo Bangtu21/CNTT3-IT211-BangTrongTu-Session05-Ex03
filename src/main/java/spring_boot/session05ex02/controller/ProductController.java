@@ -31,7 +31,6 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // POST /products
     @PostMapping
     public ResponseEntity<Product> createProduct(
             @Valid @RequestBody Product product) {
